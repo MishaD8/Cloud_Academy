@@ -2,6 +2,7 @@ AWSTemplateFormatVersion: '2010-09-09'
 Description: 'CloudFormation for VPC with Public, Private Subnets and Databas Instance in different AZs'
 
 Resources:
+# My VPC
   MyVPC:
     Type: 'AWS::EC2::VPC'
     Properties:
@@ -11,7 +12,7 @@ Resources:
       Tags:
         - Key: Name
           Value: MyVPC
-
+# Public Subnet in AZ 1A
   PublicSubnet1A:
     Type: 'AWS::EC2::Subnet'
     Properties:
@@ -22,7 +23,7 @@ Resources:
       Tags:
         - Key: Name
           Value: PublicSubnet1A
-
+# App Private Subnet in AZ 1A
   AppPrivateSubnet1A:
     Type: 'AWS::EC2::Subnet'
     Properties:
@@ -32,7 +33,7 @@ Resources:
       Tags:
         - Key: Name
           Value: AppPrivateSubnet1A
-
+# Data Private Subnet in AZ 1A
   DataPrivateSubnet1A:
     Type: 'AWS::EC2::Subnet'
     Properties:
@@ -42,8 +43,8 @@ Resources:
       Tags:
         - Key: Name
           Value: DataPrivateSubnet1A
-
-  PublicSubnet1B:
+# Public Subnet in AZ 2B
+  PublicSubnet2B:
     Type: 'AWS::EC2::Subnet'
     Properties:
       VpcId: !Ref MyVPC
@@ -52,9 +53,9 @@ Resources:
       MapPublicIpOnLaunch: true
       Tags:
         - Key: Name
-          Value: PublicSubnet1B
-
-  AppPrivateSubnet1B:
+          Value: PublicSubnet2B
+# App Private Subnet in AZ 2B
+  AppPrivateSubnet2B:
     Type: 'AWS::EC2::Subnet'
     Propeties:
       VpcId: !Ref MyVPC
@@ -62,9 +63,9 @@ Resources:
       AvailabilityZone: !Select [1, !GetAZs '']
       Tags:
         - Key: Name
-          Value: AppPrivateSubnet1B
-
-  DataPrivateSubnet1B:
+          Value: AppPrivateSubnet2B
+# Data Private Subnet in AZ 2B
+  DataPrivateSubnet2B:
     Type: 'AWS::EC2::Subnet'
     Properties:
       VpcId: !Ref MyVPC
@@ -72,5 +73,5 @@ Resources:
       AvailabilityZone: !Select [1, !GetAZs '']
       Tags:
         - Key: Name
-          Value: DataPrivateSubnet1B
+          Value: DataPrivateSubnet2B
   
