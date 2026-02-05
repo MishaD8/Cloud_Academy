@@ -57,7 +57,7 @@ Resources:
 # App Private Subnet in AZ 2B
   AppPrivateSubnet2B:
     Type: 'AWS::EC2::Subnet'
-    Propeties:
+    Properties:
       VpcId: !Ref MyVPC
       CidrBlock: '172.16.5.0/24'
       AvailabilityZone: !Select [1, !GetAZs '']
