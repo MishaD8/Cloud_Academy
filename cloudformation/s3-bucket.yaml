@@ -1,0 +1,19 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: 'CloudFormation template to create an S3 bucket for Week 5 project'
+
+Resources:
+  MyProjectBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: mykhaylo-academy-project-bucket-2026
+      VersioningConfiguration:
+        Status: Enabled
+      Tags:
+        - Key: Name 
+          Value: Academy-Project-Bucket
+        - Key: Environment
+          Value: Learning
+        - Key: ManagedBy
+          Value: CloudFormation
+
+      check    
