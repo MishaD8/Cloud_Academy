@@ -6,7 +6,6 @@ Resources:
     Type: 'AWS::IAM::User'
     Properties:
       UserName: 'MischaCFN'
-      ManagePolicyArns:
+      ManagedPolicyArns:
         - 'arn:aws:iam::aws:policy/AdministratorAccess'
 
-        
