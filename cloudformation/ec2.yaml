@@ -145,6 +145,19 @@ Resources:
       VpcId: !Ref MyVPC
       Port: 80
       Protocol: 'HTTP'
+      TargetType: 'instance'
+      HealthCheckEnabled: true
+      HealthCheckPath: /
+      HealthCheckPath: HTTP
+      HealthCheckIntervalSeconds: 30
+      HealthCheckTimeoutSeconds: 5
+      HealthyThresholdCount: 2
+      UnhealthyThresholdCount: 2
+      Targets:
+        - Id: !Ref WebServerInstance1A
+          Port: 80
+        - Id: !Ref WebServerInstance1B
+          Port: 80
 
 # Listener for ALB
   MyListener:
