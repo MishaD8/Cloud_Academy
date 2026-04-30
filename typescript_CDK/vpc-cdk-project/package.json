@@ -1,8 +1,8 @@
 {
-  "name": "cdk",
+  "name": "vpc-cdk-project",
   "version": "0.1.0",
   "bin": {
-    "cdk": "bin/cdk.js"
+    "vpc-cdk-project": "bin/vpc-cdk-project.js"
   },
   "scripts": {
     "build": "tsc",
